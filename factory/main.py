@@ -11,6 +11,7 @@ class Product(ABC):
 
 class Creator(ABC):
 
+    # The concrete implementation of the Product will be implemented here by the concrete class
     @abstractmethod
     def factory_method(self):
         pass
@@ -48,15 +49,15 @@ class ConcreteCreator2(Creator):
 def client_code(creator: Creator):
     print(
         "This class is not aware of the creator's class but this still works.\n"
-        f"{creator().some_operation()}"
+        f"{creator.some_operation()}"
         )
 
 
 if __name__ == "__main__":
     print("App created with Concrete Creator 1")
-    client_code(ConcreteCreator1)
+    client_code(ConcreteCreator1())
     print("\n")
 
     print("App created with Concrete Creator 2")
-    client_code(ConcreteCreator2)
+    client_code(ConcreteCreator2())
     print("\n")

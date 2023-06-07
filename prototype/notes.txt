@@ -1,0 +1,3 @@
+Category: Creational
+
+Enables the cloning of another object without coupling to the specification of the class
