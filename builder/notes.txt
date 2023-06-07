@@ -1,0 +1,8 @@
+Category: Creational design pattern
+
+Enables building complex incremental object without specifying the exact interface for each class. 
+The products can have different steps or it could be chained together.
+
+The common pattern is:
+
+property.method_1().method_2()

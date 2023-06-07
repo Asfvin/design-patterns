@@ -11,4 +11,4 @@ Client code calls the implementation of the factory object instead. Each factory
 product to ensure compatabilities. 
 
 This means that each Factory Class will handle the instantion of specific product type. The client code works
-with the interface and so, it can handle multiple variants
+with the interface and so, it can handle multiple variants`

@@ -4,7 +4,9 @@ from typing import Any
 
 
 class Builder(ABC):
-    """Specifies methods for creating a product"""
+    """Specifies methods for creating a product. What are the possible configurations that
+    this product can take
+    """
 
     @property
     @abstractmethod
@@ -25,25 +27,35 @@ class Builder(ABC):
 
 
 class Product1:
+    """The sepecific product used by certain Builder"""
     def __init__(self):
         self.parts = []
 
-    def add(self, parts: Any):
-        self.parts.append(parts)
+    def add(self, part: Any):
+        self.parts.append(part)
 
-    def list_parts(self):
+    def list_parts(self) -> None:
         print(f"Product parts: {', '.join(self.parts)}", end="")
 
 
 class ConcreteBuilder1(Builder):
+    """
+    Follows the interface of Builder and provides implementations. Different builder can have
+    different implementation"""
 
+    """A blank product instantiation should contain a blank product"""
     def __init__(self):
         self.reset()
 
+    # Creates an instance of Product1 and stores it as _product
     def reset(self):
         self._product = Product1()
 
+    @property
     def product(self):
+        # This is a method to retrieve the result. When you are instantiating the builder
+        # the self._product will be implemented and you can call the methods without calling this
+        # Once this method is called, it will reset the builder
         product = self._product
         self.reset()
         return product
@@ -59,6 +71,7 @@ class ConcreteBuilder1(Builder):
 
 
 class Director:
+    """Only responsible for specifying the exact steps of the builder"""
 
     def __init__(self):
         self._builder = None
@@ -92,13 +105,13 @@ if __name__ == "__main__":
     print("\n")
 
     print("Standard full featured product: ")
-    director.build_full_featured_product()
+    director.build_full_feature_product()
     builder.product.list_parts()
 
     print("\n")
 
     # Remember, the Builder pattern can be used without a Director class.
     print("Custom product: ")
-    builder.produce_part_a()
-    builder.produce_part_b()
+    builder.product_part_a()
+    builder.product_part_b()
     builder.product.list_parts()
