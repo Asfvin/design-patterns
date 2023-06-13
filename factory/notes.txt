@@ -1,0 +1,3 @@
+Category: Creational
+
+Creating product objects without specifying their implementation

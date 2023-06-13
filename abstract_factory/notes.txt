@@ -1,0 +1,14 @@
+Category: Creational Design pattern
+
+Objective: To specify entire product families without specifying their concrete classes
+
+Interface to create all the products but leaves the actual creation/ implementation of the product
+to the concrete factory classes
+
+Each factory corresponds to specific product types
+
+Client code calls the implementation of the factory object instead. Each factory implements a specific
+product to ensure compatabilities. 
+
+This means that each Factory Class will handle the instantion of specific product type. The client code works
+with the interface and so, it can handle multiple variants`
